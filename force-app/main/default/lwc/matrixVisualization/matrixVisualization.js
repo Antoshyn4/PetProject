@@ -1,6 +1,6 @@
-import { LightningElement, track } from 'lwc';
+import {LightningElement, track} from 'lwc';
 
-export default class TestLwcComponent extends LightningElement {
+export default class MatrixVisalization extends LightningElement {
     output = "Default";
     xLength;
     yHeight;
@@ -62,6 +62,7 @@ export default class TestLwcComponent extends LightningElement {
         let listTest =[[]];
         this.listOfCheckboxes.length = 0;
         for (let i = 0; i < this.yHeight; i++) {
+            debugger;
             listTest.push([]);
             for (let z = 0; z < this.xLength; z++) {
                 if (this.listOfListOfCheckboxes[i][z]) {
@@ -75,20 +76,11 @@ export default class TestLwcComponent extends LightningElement {
     checkBoxChangeFun(event){
         let x = parseInt(event.target.id.substring(0,event.target.id.indexOf("-")));
         let y = parseInt(event.target.name);
-        if (x != y) {
-            if (this.listOfListOfCheckboxes[y][x] == true) {
-                this.listOfListOfCheckboxes[y][x] = false;
-            }
-            else {
-                this.listOfListOfCheckboxes[y][x] = true;
-            }
+        if (this.listOfListOfCheckboxes[y][x] == true) {
+            this.listOfListOfCheckboxes[y][x] = false;
         }
-        else{
-            let boxes = this.template.querySelectorAll('input');
-            console.log("asd");
-            for (const box in boxes) {
-                console.log(JSON.parse(JSON.stringify(box)));  
-            }
+        else {
+            this.listOfListOfCheckboxes[y][x] = true;
         }
-        }
+    }
 }

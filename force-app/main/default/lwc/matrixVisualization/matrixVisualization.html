@@ -1,0 +1,32 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-25-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Matrix" icon-name="custom:custom63">
+        <label for="xLength">x/Length: </label>
+        <input type="text" name="xLength" value ={xLength} onchange={changeHandler}><br><br>
+        <label for="yHeight" >y/Height: </label>
+        <input type="text" name="yHeight" value ={yHeight} onchange={changeHandler}><br><br>
+        <div class="slds-m-around_medium">
+            <table>
+                <template iterator:rows={listOfCheckboxes}>
+                    <div key={rows}>
+                  <template iterator:cols={rows.value} key={rows.value}>
+                        <template if:true={cols.value}>
+                            <input class="larger" type="checkbox" name={rows.index} id={cols.index} value={cols.value} key ={cols} onchange={checkBoxChangeFun} checked>
+                        </template>
+                        <template if:false={cols.value}>
+                            <input class="larger" type="checkbox" name={rows.index} id={cols.index} value={cols.value} key ={cols} onchange={checkBoxChangeFun} unchecked>
+                    </template>
+                  </template>
+                </div>
+                </template>
+            </table>
+            <button onclick={clearAll}>Clear</button>
+        </div>
+    </lightning-card>
+</template>
