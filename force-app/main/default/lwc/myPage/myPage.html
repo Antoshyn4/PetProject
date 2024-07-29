@@ -1,0 +1,39 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-28-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card  title="My Page">
+        <c-search-and-sort
+        sort-field = {sortField}
+        parent-name={parentName}
+        child-name={childName}
+        sorted-by-descending={sortedByDescending}   
+        onrecordchange={changeRecord}
+        onfill={fillAllValues}
+        onsort={changeSort}></c-search-and-sort>
+        <div if:true={noSearchResult}>
+            <P>No result</P>
+        </div>
+        <c-list-of-accounts
+                    count-of-all-elements={countOfAllElementsAct}
+                    count-of-columns={countOfColumns}
+                    count-of-page-elements={countOfPageElements}
+                    count-of-pages={countOfPagesAct}
+                    page-number={pageNum}
+                    parent-name={parentName}
+                    child-name={childName}
+                    record-please={record}
+        ></c-list-of-accounts>
+        <c-menu 
+                    current-page-num={pageNum}
+                    onredraw={reDraw}
+                    count-of-pages={countOfPagesAct}
+                    count-of-all-elements={countOfAllElementsAct}
+                    count-of-page-elements={countOfPageElements}
+        ></c-menu> 
+    </lightning-card>
+</template>

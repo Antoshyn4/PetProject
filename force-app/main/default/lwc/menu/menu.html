@@ -1,0 +1,45 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-28-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+
+<template>
+    <div class="slds-grid">
+        <template if:false={isSingle}>
+            <div class="slds-col">
+                <div class = "Left">
+                    <button disabled={isFirstPage} onclick={drawFirstPage}>First</button>
+                </div>
+            </div>
+            <div class="slds-col">
+                <div class = "Center">
+                    <button disabled={isFirstPage} onclick={drawPreviousPage}>Previous</button>
+                </div>
+            </div>
+            <template if:true={isFirstPage}>
+                <div class="slds-col"></div>
+            </template>
+                <div class="slds-col">
+                    <div class = "Center">
+                        <input type="text" value={inputValue} onchange={drawSomePage}>
+                    </div>
+                </div>
+                <div class="slds-col">
+                    <div class = "Center">
+                        <button disabled={isLastPage} onclick={drawNextPage}>Next</button>
+                    </div>
+                </div>
+                <div class="slds-col">
+                    <div class = "Right">
+                        <button disabled={isLastPage} onclick={drawLastPage}>Last</button>
+                    </div>
+                </div>
+            <template if:true={isLastPage}>
+                <div class="slds-col"></div>
+            </template>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,34 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-26-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <c-create-account
+    object-api-name="Account"></c-create-account>
+    <div class="slds-grid">
+        <div class="slds-col slds-size_6-of-12">
+            <lightning-input
+            type="search" label="Search" value={searchText} onchange={doSearchEvent}>
+            </lightning-input>  
+        </div>
+        <div class="slds-col slds-size_5-of-12">
+            <lightning-combobox
+            label="Sort by"
+            value={sortField}
+            options={options}
+            onchange={handleComboboxChange} ></lightning-combobox>
+            
+        </div>
+        <div class="slds-col slds-size_1-of-12">
+            <div class="buttons">
+                <lightning-button-group>
+                    <lightning-button-icon icon-name="utility:arrowup" onclick={handleAsc}></lightning-button-icon>
+                    <lightning-button-icon icon-name="utility:arrowdown" onclick={handleDesc}></lightning-button-icon>
+                </lightning-button-group>
+            </div>
+        </div>
+    </div>
+</template>
